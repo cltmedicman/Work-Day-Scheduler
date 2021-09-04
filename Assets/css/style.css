@@ -94,3 +94,13 @@ textarea{
 .footer a{
   color:lightpink;
 }
+
+.clearBtn {
+  font-weight: bold;
+  font-size: 22px;
+  border: 2px solid black
+}
+
+.clearBtn:hover {
+  color:red;
+}

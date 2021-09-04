@@ -10,7 +10,6 @@ var threeEl = document.querySelector('#three-pm');
 var fourEl = document.querySelector('#four-pm');
 var fiveEl = document.querySelector('#five-pm');
 
-var currentTime = setInterval(Time, 1000);
 var button9 = document.querySelector('.saveBtn9');
 var button10 = document.querySelector('.saveBtn10');
 var button11 = document.querySelector('.saveBtn11');
@@ -20,8 +19,9 @@ var button2 = document.querySelector('.saveBtn2');
 var button3 = document.querySelector('.saveBtn3');
 var button4 = document.querySelector('.saveBtn4');
 var button5 = document.querySelector('.saveBtn5');
+var clearBtn = document.querySelector('.clearBtn');
 
-function Time() {
+var currentTime = setInterval(function () {
     var now = new Date();
 
     currentDayEl.innerText = moment(now).format('dddd, LL');
@@ -38,7 +38,8 @@ function Time() {
     threePm(time);
     fourPm(time);
     fivePm(time);
-}
+
+}, 1000);
 
 button9.addEventListener('click', function() {
     var text = nineEl.value;
@@ -83,6 +84,13 @@ button4.addEventListener('click', function() {
 button5.addEventListener('click', function() {
     var text = fiveEl.value;
     localStorage.setItem("hour5", JSON.stringify(text));
+})
+
+clearBtn.addEventListener('click', function() {
+    if (confirm("Are you sure?")) {
+        localStorage.clear();
+        location.reload();
+    }
 })
 
 function nineAm (time) {
