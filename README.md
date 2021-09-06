@@ -1,4 +1,4 @@
-# Work Day Scheudler
+# Work Day Scheduler
 ## Description
 This is a simple calender app for scheduling your work day with a clear button to get ready for the next day's schedule
 ## Link
@@ -6,7 +6,7 @@ Here is a link to the deployed application https://cltmedicman.github.io/Work-Da
 ## Screenshot
 Here is a screenshot of the application:
 
-
+![screencapture-cltmedicman-github-io-Work-Day-Scheduler-2021-09-05-21_19_10](https://user-images.githubusercontent.com/79491454/132147876-33b20246-5b27-432e-9cf5-19e366e8c293.png)
 ## Credits
 Created by Phillip Shirah for UNCC Full Stack Development Bootcamp.
 
