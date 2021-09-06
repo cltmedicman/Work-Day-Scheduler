@@ -1,3 +1,4 @@
+// variables for elements
 var currentDayEl = document.querySelector('#currentDay');
 var currentTimeEl = document.querySelector('#currentTime');
 var nineEl = document.querySelector('#nine-am');
@@ -10,6 +11,7 @@ var threeEl = document.querySelector('#three-pm');
 var fourEl = document.querySelector('#four-pm');
 var fiveEl = document.querySelector('#five-pm');
 
+// variables for buttons
 var button9 = document.querySelector('.saveBtn9');
 var button10 = document.querySelector('.saveBtn10');
 var button11 = document.querySelector('.saveBtn11');
@@ -21,14 +23,20 @@ var button4 = document.querySelector('.saveBtn4');
 var button5 = document.querySelector('.saveBtn5');
 var clearBtn = document.querySelector('.clearBtn');
 
+// function to set time and call other functions
 var currentTime = setInterval(function () {
+
+    // gets current date and time
     var now = new Date();
 
+    // formats date and time display
     currentDayEl.innerText = moment(now).format('dddd, LL');
     currentTimeEl.innerText = moment(now).format(' hh : mm : ss a');
     
+    // gets time using momentjs so they can be formatted in functions
     var time = moment();
 
+    // calls functions passing time variable
     nineAm(time);
     tenAm(time);
     elevenAm(time);
@@ -41,6 +49,7 @@ var currentTime = setInterval(function () {
 
 }, 1000);
 
+// event listeners for save buttons and saves input to local storage
 button9.addEventListener('click', function() {
     var text = nineEl.value;
     localStorage.setItem("hour9", JSON.stringify(text));
@@ -86,13 +95,29 @@ button5.addEventListener('click', function() {
     localStorage.setItem("hour5", JSON.stringify(text));
 })
 
+// clears local storage and text areas
 clearBtn.addEventListener('click', function() {
     if (confirm("Are you sure?")) {
+
+        // added the following because values remained in FireFox after
+        // clearing storage and reloading page
+        nineEl.value = "";
+        tenEl.value = "";
+        elevenEl.value = "";
+        twelveEl.value = "";
+        oneEl.value = "";
+        twoEl.value = "";
+        threeEl.value = "";
+        fourEl.value = "";
+        fiveEl.value = "";
+
         localStorage.clear();
         location.reload();
     }
 })
 
+// functions to get items from local storage and display in the textarea
+// and adds or removes CSS property to textarea based on current hour
 function nineAm (time) {
     nineEl.textContent = JSON.parse(localStorage.getItem("hour9"));
 
